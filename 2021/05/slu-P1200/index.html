@@ -35,24 +35,27 @@
     <!-- meta -->
 
 
-<title>博客搬迁了 | Caviar-X的博客</title>
+<title>题解-P1200 | Caviar-X的博客</title>
 
+
+    <meta name="keywords" content="洛谷题解">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="最近博客重新换了个主题与博客生成器 之前的文章由于太水了就不搬迁了QaQ">
+    <meta name="description" content="题面见: https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P1200  解法这是一道水题 首先，题中提到，A为1,Z为26，所以我们先写一个简单的小程序 #include &lt;bits&#x2F;stdc++.h&gt; using namespace std; int main()&amp;#123;     cout&lt;&lt;int(&#39;Z&#39;);&#x2F;&#x2F;题中均为大写字母 &amp;#125;  之后我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客搬迁了">
-<meta property="og:url" content="http://caviar-x.top/2021/05/restart-blog/index.html">
+<meta property="og:title" content="题解-P1200">
+<meta property="og:url" content="http://caviar-x.top/2021/05/slu-P1200/index.html">
 <meta property="og:site_name" content="Caviar-X的博客">
-<meta property="og:description" content="最近博客重新换了个主题与博客生成器 之前的文章由于太水了就不搬迁了QaQ">
+<meta property="og:description" content="题面见: https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P1200  解法这是一道水题 首先，题中提到，A为1,Z为26，所以我们先写一个简单的小程序 #include &lt;bits&#x2F;stdc++.h&gt; using namespace std; int main()&amp;#123;     cout&lt;&lt;int(&#39;Z&#39;);&#x2F;&#x2F;题中均为大写字母 &amp;#125;  之后我">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-03T07:09:39.000Z">
-<meta property="article:modified_time" content="2021-05-03T07:12:42.202Z">
+<meta property="article:published_time" content="2021-05-03T07:44:58.000Z">
+<meta property="article:modified_time" content="2021-05-04T04:10:33.312Z">
 <meta property="article:author" content="Caviar-X">
+<meta property="article:tag" content="洛谷题解">
 <meta name="twitter:card" content="summary_large_image">
 
 
@@ -168,7 +171,7 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        博客搬迁了
+        题解-P1200
     </h1>
     <div class="post-title__meta">
         <a href="/archives/2021/05/" class="post-meta__date button">创建于2021-05-03</a>
@@ -195,7 +198,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">坑点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">源代码</span></a></li></ol></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -205,7 +208,7 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">文章目录</div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%91%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">坑点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">源代码</span></a></li></ol></li></ol>
     </div>
 
 
@@ -218,7 +221,7 @@
     </div>
     <script>
         (() => {
-            var update = Date.parse("2021-05-03"),
+            var update = Date.parse("2021-05-04"),
                 date = new Date(),
                 now = date.getTime(),
                 expire = now - update,
@@ -231,8 +234,53 @@
     </script>
 </div>
     <div class="post__content">
-        <p>最近博客重新换了个主题与博客生成器</p>
-<p>之前的文章由于太水了就不搬迁了QaQ</p>
+        <blockquote>
+<p>题面见: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1200">https://www.luogu.com.cn/problem/P1200</a></p>
+</blockquote>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>这是一道水题</p>
+<p>首先，题中提到，A为1,Z为26，所以我们先写一个简单的小程序</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token keyword">int</span><span class="token punctuation">(</span><span class="token string">'Z'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//题中均为大写字母</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>之后我们再一看输出</p>
+<pre class="line-numbers language-none"><code class="language-none">90<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>那么,Z的ASCII码为90，而题中Z为26</p>
+<p>那么我们算一下</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">calc <span class="token number">90</span>-26<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>得出</p>
+<pre class="line-numbers language-none"><code class="language-none">60<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>也就是说，只要对每个输入进来的字母减去60即可(如果你喜欢的话也可以用<code>@</code>)</p>
+<p>剩下的读题即可</p>
+<h3 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h3><ul>
+<li>相加而不是相乘</li>
+</ul>
+<h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token comment">//处理字符串并输出结果(本来想写dispatch但太懒了而写了d的屑)</span>
+<span class="token keyword">void</span> <span class="token function">d</span><span class="token punctuation">(</span>string a<span class="token punctuation">,</span>string b<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> s<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>w<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>a<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        s<span class="token operator">*=</span><span class="token keyword">int</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">64</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>b<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        w<span class="token operator">*=</span><span class="token keyword">int</span><span class="token punctuation">(</span>b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">64</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token operator">%</span><span class="token number">47</span> <span class="token operator">==</span> w<span class="token operator">%</span><span class="token number">47</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"GOO\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"STAYY\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    string ufo<span class="token punctuation">,</span>team<span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>ufo<span class="token operator">>></span>team<span class="token punctuation">;</span>
+    <span class="token function">d</span><span class="token punctuation">(</span>ufo<span class="token punctuation">,</span>team<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//防作弊，懂得都懂</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
     </div>
     
@@ -244,35 +292,35 @@
             <strong>
                 本文链接：
             </strong>
-            <a href="http://caviar-x.top/2021/05/restart-blog/">http://caviar-x.top/2021/05/restart-blog/</a>
+            <a href="http://caviar-x.top/2021/05/slu-P1200/">http://caviar-x.top/2021/05/slu-P1200/</a>
         </p>
         
     </div>
  
-    <div class="post-footer__meta"><p>更新于2021-05-03</p></div> 
-    <div class="post-meta__cats"></div> 
+    <div class="post-footer__meta"><p>更新于2021-05-04</p></div> 
+    <div class="post-meta__cats"><a href="/tags/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/" class="post-tags__link button"># 洛谷题解</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/2021/05/slu-P1200/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            Previous Post
-                        </div>
-                        <div class="nav__title">
-                            题解-P1200
-                        </div>
-                    </div>
-                </a>
-            
         </div>
         <div class="nav__next">
+            
+                <a href="/2021/05/restart-blog/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            博客搬迁了
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
             
         </div>
     </div>
@@ -471,7 +519,7 @@
                 if ('true' === 'true') {
                     var viewCtn = document.querySelector('#leancloud_container_page_pv');
                     if (viewCtn || enableIncr) {
-                        var target = decodeURI('/2021/05/restart-blog/');
+                        var target = decodeURI('/2021/05/slu-P1200/');
                         var viewGetter = getRecord(Counter, target).then((record) => {
                             incrArr.push(buildIncrement(record.objectId))
                             if (viewCtn) {
@@ -562,6 +610,56 @@
     </script>
  
 
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
  
 
  
