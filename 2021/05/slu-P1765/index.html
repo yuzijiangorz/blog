@@ -35,27 +35,27 @@
     <!-- meta -->
 
 
-<title>写在13岁 | Caviar-X的博客</title>
+<title>P1765题解 | Caviar-X的博客</title>
 
 
-    <meta name="keywords" content="随笔">
+    <meta name="keywords" content="洛谷题解">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="似乎没啥可写的qwq">
+    <meta name="description" content="思路这道题用go写其实蛮简单的，思路打表即可 难点就在于输入 由于正常的fmt.Scan或Scanf或Scanln都无法获取一整行的输入，所以这里使用了一个比较底层的方法来完成 代码如下 代码&#x2F;&#x2F; luogu-P1765 package main  import ( 	&quot;bufio&quot; 	&quot;fmt&quot; 	&quot;os&quot; 	&quot;strings&quot; )  func main() &amp;#123; 	var a [114">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写在13岁">
-<meta property="og:url" content="http://caviar-x.top/2021/05/writing-in-13-year-old/index.html">
+<meta property="og:title" content="P1765题解">
+<meta property="og:url" content="http://caviar-x.top/2021/05/slu-P1765/index.html">
 <meta property="og:site_name" content="Caviar-X的博客">
-<meta property="og:description" content="似乎没啥可写的qwq">
+<meta property="og:description" content="思路这道题用go写其实蛮简单的，思路打表即可 难点就在于输入 由于正常的fmt.Scan或Scanf或Scanln都无法获取一整行的输入，所以这里使用了一个比较底层的方法来完成 代码如下 代码&#x2F;&#x2F; luogu-P1765 package main  import ( 	&quot;bufio&quot; 	&quot;fmt&quot; 	&quot;os&quot; 	&quot;strings&quot; )  func main() &amp;#123; 	var a [114">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-05T04:51:23.000Z">
-<meta property="article:modified_time" content="2021-05-05T04:55:01.723Z">
+<meta property="article:published_time" content="2021-05-14T04:56:35.000Z">
+<meta property="article:modified_time" content="2021-05-14T04:59:17.370Z">
 <meta property="article:author" content="Caviar-X">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="洛谷题解">
 <meta name="twitter:card" content="summary_large_image">
 
 
@@ -171,10 +171,10 @@
 
 <div class="post-title">
     <h1 class="post-title__text">
-        写在13岁
+        P1765题解
     </h1>
     <div class="post-title__meta">
-        <a href="/archives/2021/05/" class="post-meta__date button">创建于2021-05-05</a>
+        <a href="/archives/2021/05/" class="post-meta__date button">创建于2021-05-14</a>
         
  
         
@@ -198,7 +198,7 @@
 
     <aside class="post-side">
         <div class="post-side__toc">
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
         </div>
     </aside>
     <a class="btn-toc button" id="btn-toc" tabindex="0">
@@ -208,7 +208,7 @@
     </a>
     <div class="toc-menus" id="toc-menus">
         <div class="toc-title">文章目录</div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
     </div>
 
 
@@ -221,7 +221,7 @@
     </div>
     <script>
         (() => {
-            var update = Date.parse("2021-05-05"),
+            var update = Date.parse("2021-05-14"),
                 date = new Date(),
                 now = date.getTime(),
                 expire = now - update,
@@ -234,10 +234,64 @@
     </script>
 </div>
     <div class="post__content">
-        <p>似乎没啥可写的qwq</p>
-<span id="more"></span>
+        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题用go写其实蛮简单的，思路打表即可</p>
+<p>难点就在于输入</p>
+<p>由于正常的fmt.Scan或Scanf或Scanln都无法获取一整行的输入，所以这里使用了一个比较底层的方法来完成</p>
+<p>代码如下</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// luogu-P1765</span>
+<span class="token keyword">package</span> main
 
-<p>祝自己生日快乐！</p>
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"bufio"</span>
+	<span class="token string">"fmt"</span>
+	<span class="token string">"os"</span>
+	<span class="token string">"strings"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">var</span> a <span class="token punctuation">[</span><span class="token number">11451</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token builtin">int</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'f'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'g'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'j'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'k'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'l'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'m'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'n'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'o'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'q'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'s'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'t'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'u'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'v'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'w'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">'z'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span>
+	a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	cnt <span class="token operator">:=</span> <span class="token number">0</span>
+	read <span class="token operator">:=</span> bufio<span class="token punctuation">.</span><span class="token function">NewReader</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>Stdin<span class="token punctuation">)</span>
+	s<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> read<span class="token punctuation">.</span><span class="token function">ReadString</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token comment">//注意，这里函数的多返回值需要处理一下</span>
+	strings<span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token comment">//去掉字符串尾部的\n</span>
+	<span class="token comment">//fmt.Printf(s)</span>
+	<span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> k <span class="token operator">:=</span> <span class="token keyword">range</span> s <span class="token punctuation">&#123;</span>
+		cnt <span class="token operator">+=</span> a<span class="token punctuation">[</span><span class="token function">int</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+	<span class="token punctuation">&#125;</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>cnt<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 
     </div>
     
@@ -249,43 +303,29 @@
             <strong>
                 本文链接：
             </strong>
-            <a href="http://caviar-x.top/2021/05/writing-in-13-year-old/">http://caviar-x.top/2021/05/writing-in-13-year-old/</a>
+            <a href="http://caviar-x.top/2021/05/slu-P1765/">http://caviar-x.top/2021/05/slu-P1765/</a>
         </p>
         
     </div>
  
-    <div class="post-footer__meta"><p>更新于2021-05-05</p></div> 
-    <div class="post-meta__cats"><a href="/tags/%E9%9A%8F%E7%AC%94/" class="post-tags__link button"># 随笔</a></div> 
+    <div class="post-footer__meta"><p>更新于2021-05-14</p></div> 
+    <div class="post-meta__cats"><a href="/tags/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/" class="post-tags__link button"># 洛谷题解</a></div> 
 </article>
 
 
     <div class="nav">
         <div class="nav__prev">
             
-                <a href="/2021/05/slu-P1765/" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            Previous Post
-                        </div>
-                        <div class="nav__title">
-                            P1765题解
-                        </div>
-                    </div>
-                </a>
-            
         </div>
         <div class="nav__next">
             
-                <a href="/2021/05/learn-go/" class="nav__link">
+                <a href="/2021/05/writing-in-13-year-old/" class="nav__link">
                     <div>
                         <div class="nav__label">
                             Next Post
                         </div>
                         <div class="nav__title">
-                            Go语言学习笔记1
+                            写在13岁
                         </div>
                     </div>
                     <div>
@@ -490,7 +530,7 @@
                 if ('true' === 'true') {
                     var viewCtn = document.querySelector('#leancloud_container_page_pv');
                     if (viewCtn || enableIncr) {
-                        var target = decodeURI('/2021/05/writing-in-13-year-old/');
+                        var target = decodeURI('/2021/05/slu-P1765/');
                         var viewGetter = getRecord(Counter, target).then((record) => {
                             incrArr.push(buildIncrement(record.objectId))
                             if (viewCtn) {
@@ -581,6 +621,56 @@
     </script>
  
 
+
+    <script>
+        if (typeof MathJax === 'undefined') {
+            window.MathJax = {
+                loader: {
+                    source: {
+                        '[tex]/amsCd': '[tex]/amscd',
+                        '[tex]/AMScd': '[tex]/amscd'
+                    }
+                },
+                tex: {
+                    inlineMath: {'[+]': [['$', '$']]},
+                    tags: 'ams'
+                },
+                options: {
+                    renderActions: {
+                        findScript: [10, doc => {
+                            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                                const display = !!node.type.match(/; *mode=display/);
+                                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                                const text = document.createTextNode('');
+                                node.parentNode.replaceChild(text, node);
+                                math.start = {node: text, delim: '', n: 0};
+                                math.end = {node: text, delim: '', n: 0};
+                                doc.math.push(math);
+                            });
+                        }, '', false],
+                        insertedScript: [200, () => {
+                            document.querySelectorAll('mjx-container').forEach(node => {
+                                let target = node.parentNode;
+                                if (target.nodeName.toLowerCase() === 'li') {
+                                    target.parentNode.classList.add('has-jax');
+                                }
+                            });
+                        }, '', false]
+                    }
+                }
+            };
+            (function () {
+                var script = document.createElement('script');
+                script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+                script.defer = true;
+                document.head.appendChild(script);
+            })();
+        } else {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+        }
+    </script>
  
 
  
